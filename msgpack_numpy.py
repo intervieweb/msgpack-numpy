@@ -119,33 +119,34 @@ if msgpack.version < (0, 4, 0):
 else:
     class Packer(_Packer):
         def __init__(self, default=None,
-                     encoding='utf-8',
                      unicode_errors='strict',
                      use_single_float=False,
                      autoreset=1,
-                     use_bin_type=0):
+                     use_bin_type=0,
+                     strict_types=False):
             default = functools.partial(encode, chain=default)
             super(Packer, self).__init__(default=default,
-                                         encoding=encoding,
                                          unicode_errors=unicode_errors,
                                          use_single_float=use_single_float,
                                          autoreset=autoreset,
-                                         use_bin_type=use_bin_type)
+                                         use_bin_type=use_bin_type,
+                                         strict_types=strict_types)
 
     class Unpacker(_Unpacker):
         def __init__(self, file_like=None, read_size=0, use_list=None,
+                     raw=False,
                      object_hook=None,
-                     object_pairs_hook=None, list_hook=None, encoding=None,
+                     object_pairs_hook=None, list_hook=None,
                      unicode_errors='strict', max_buffer_size=0,
                      ext_hook=msgpack.ExtType):
             object_hook = functools.partial(decode, chain=object_hook)
             super(Unpacker, self).__init__(file_like=file_like,
                                            read_size=read_size,
                                            use_list=use_list,
+                                           raw=raw,
                                            object_hook=object_hook,
                                            object_pairs_hook=object_pairs_hook,
                                            list_hook=list_hook,
-                                           encoding=encoding,
                                            unicode_errors=unicode_errors,
                                            max_buffer_size=max_buffer_size,
                                            ext_hook=ext_hook)

@@ -7,7 +7,7 @@ from setuptools import setup
 
 NAME =               'msgpack-numpy'
 VERSION =            '0.4.3.2'
-AUTHOR =             'Lev E. Givon'
+AUTHOR =             'Lev E. Givon/mod_by_aembryonic'
 AUTHOR_EMAIL =       'lev@columbia.edu'
 URL =                'https://github.com/lebedov/msgpack-numpy'
 DESCRIPTION =        'Numpy data serialization using msgpack'
